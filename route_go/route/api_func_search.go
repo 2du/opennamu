@@ -24,12 +24,12 @@ func Api_func_search(db *sql.DB, call_arg []string) string {
     var stmt *sql.Stmt
     var err error
     if other_set["search_type"] == "title" {
-        stmt, err = db.Prepare(tool.DB_change("select title from data where title collate nocase like ? order by title limit ?, 50"))
+        stmt, err = db.Prepare(tool.DB_change("select d.title from data d join data_set ds on d.title = ds.doc_name where d.title collate nocase like ? and ds.doc_rev='' and ds.set_name = 'view_count' order by CAST(ds.set_data AS UNSIGNED) DESC limit ?, 50"))
         if err != nil {
             panic(err)
         }
     } else {
-        stmt, err = db.Prepare(tool.DB_change("select title from data where data collate nocase like ? order by title limit ?, 50"))
+        stmt, err = db.Prepare(tool.DB_change("select d.title from data d join data_set ds on d.title = ds.doc_name where d.data collate nocase like ? and ds.doc_rev='' and ds.set_name = 'view_count' order by CAST(ds.set_data AS UNSIGNED) DESC limit ?, 50"))
         if err != nil {
             panic(err)
         }
