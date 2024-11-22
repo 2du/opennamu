@@ -52,3 +52,39 @@ document.addEventListener("click", function() {
         setTimeout(function() { ringo_open = 0; }, 100);
     }
 });
+
+document.getElementById("sort_by_lang").addEventListener("click", function () {
+    event.preventDefault(); // 기본 동작(새로고침) 막기
+    const ul = document.querySelector("ul:nth-of-type(2)"); // 두 번째 <ul> 선택
+    const items = Array.from(ul.querySelectorAll("li")); // <li> 요소 가져오기
+
+    // 가나다 순으로 정렬
+    items.sort((a, b) => {
+        const aTitle = a.querySelector("a").textContent.trim();
+        const bTitle = b.querySelector("a").textContent.trim();
+        return aTitle.localeCompare(bTitle, "ko"); // 한국어 기준으로 정렬
+    });
+
+    // 정렬된 <li> 항목을 다시 추가
+    ul.innerHTML = ""; // 기존 내용 제거
+    items.forEach(item => ul.appendChild(item)); // 정렬된 항목 추가
+});
+
+
+
+document.getElementById("sort_by_views").addEventListener("click", function () {
+    event.preventDefault(); // 기본 동작(새로고침) 막기
+    const ul = document.querySelector("ul:nth-of-type(2)"); // 두 번째 <ul> 선택
+    const items = Array.from(ul.querySelectorAll("li")); // <li> 요소 가져오기
+
+    // 조회수를 기준으로 내림차순 정렬
+    items.sort((a, b) => {
+        const aViewCount = parseInt(a.querySelector("span").textContent.replace("조회수:", "").trim());
+        const bViewCount = parseInt(b.querySelector("span").textContent.replace("조회수:", "").trim());
+        return bViewCount - aViewCount; // 내림차순
+    });
+
+    // 정렬된 <li> 항목을 다시 추가
+    ul.innerHTML = ""; // 기존 내용 제거
+    items.forEach(item => ul.appendChild(item)); // 정렬된 항목 추가
+});

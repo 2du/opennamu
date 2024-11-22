@@ -19,6 +19,8 @@ async def main_search_deep(name = 'Test', search_type = 'title', num = 1):
                 <form method="post">
                     <input class="opennamu_width_200" name="search" value="''' + html.escape(name) + '''">
                     <button type="submit">''' + get_lang(conn, 'search') + '''</button>
+                    <button id="sort_by_lang">''' + get_lang(conn, 'sort_by_lang') + '''</button>
+                    <button id="sort_by_views">''' + get_lang(conn, 'sort_by_views') + '''</button>
                 </form>
                 <hr class="main_hr">
             '''
@@ -53,7 +55,7 @@ async def main_search_deep(name = 'Test', search_type = 'title', num = 1):
 
             all_list = orjson.loads((await api_func_search(name, search_type, num)).get_data(as_text = True))
             for data in all_list:
-                div += '<li><a href="/w/' + url_pas(data) + '">' + data + '</a></li>'
+                div += '<li><a href="/w/' + url_pas(data["title"]) + '">' + data["title"] + '</a><span> 조회수: ' + data["set_data"] + '</span></li>'
 
             div += '</ul>'
             

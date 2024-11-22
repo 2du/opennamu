@@ -17,26 +17,31 @@ func Api_func_search(db *sql.DB, call_arg []string) string {
 
     page, _ := strconv.Atoi(other_set["num"])
     num := 0
-    if page * 50 > 0 {
-        num = page * 50 - 50
+    if page*50 > 0 {
+        num = page*50 - 50
     }
 
     var stmt *sql.Stmt
     var err error
     if other_set["search_type"] == "title" {
-        stmt, err = db.Prepare(tool.DB_change("select title from data where title collate nocase like ? order by title limit ?, 50"))
+        stmt, err = db.Prepare(tool.DB_change("SELECT doc_name, set_data FROM data_set WHERE doc_name collate nocase LIKE ? AND set_name = 'view_count' AND doc_rev = '' ORDER BY doc_name LIMIT ?, 50"))
         if err != nil {
             panic(err)
         }
     } else {
-        stmt, err = db.Prepare(tool.DB_change("select title from data where data collate nocase like ? order by title limit ?, 50"))
+        stmt, err = db.Prepare(tool.DB_change("SELECT d.title, ds.set_data FROM data d JOIN data_set ds ON d.title = ds.doc_name WHERE ds.doc_rev = '' AND ds.set_name = 'view_count' ORDER BY d.title LIMIT ?, 50"))
         if err != nil {
             panic(err)
         }
     }
     defer stmt.Close()
 
-    title_list := []string{}
+    // 두 개의 값을 저장할 구조체 배열 선언
+    type Result struct {
+        Title   string `json:"title"`
+        SetData string `json:"set_data"`
+    }
+    results := []Result{}
 
     rows, err := stmt.Query("%"+other_set["name"]+"%", num)
     if err != nil {
@@ -46,15 +51,18 @@ func Api_func_search(db *sql.DB, call_arg []string) string {
 
     for rows.Next() {
         var title string
+        var setData string
 
-        err := rows.Scan(&title)
+        err := rows.Scan(&title, &setData) // 두 개의 값을 읽음
         if err != nil {
             panic(err)
         }
 
-        title_list = append(title_list, title)
+        // 읽은 데이터를 구조체로 추가
+        results = append(results, Result{Title: title, SetData: setData})
     }
 
-    json_data, _ := json.Marshal(title_list)
+    // JSON으로 변환
+    json_data, _ := json.Marshal(results)
     return string(json_data)
 }
