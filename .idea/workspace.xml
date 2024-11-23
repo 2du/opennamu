@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54023674-ac36-4a36-aead-609acab92642" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/lang/ko-KR.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/ko-KR.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/main_search_deep.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/main_search_deep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route_go/bin/main.amd64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route_go/bin/main.amd64.exe" beforeDir="false" afterPath="$PROJECT_DIR$/route_go/bin/main.amd64.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route_go/bin/main.arm64.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route_go/bin/main.arm64.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route_go/bin/main.mac.arm64.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/route_go/route/api_func_search.go" beforeDir="false" afterPath="$PROJECT_DIR$/route_go/route/api_func_search.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/ringo/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/ringo/js/main.js" afterDir="false" />
     </list>
@@ -34,17 +29,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sort",
-    "last_opened_file_path": "C:/Users/82103/PycharmProjects/openNAMU-beta",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sort&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/82103/PycharmProjects/openNAMU-beta&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\82103\PycharmProjects\openNAMU\route" />

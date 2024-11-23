@@ -29,7 +29,7 @@ func Api_func_search(db *sql.DB, call_arg []string) string {
             panic(err)
         }
     } else {
-        stmt, err = db.Prepare(tool.DB_change("SELECT d.title, ds.set_data FROM data d JOIN data_set ds ON d.title = ds.doc_name WHERE ds.doc_rev = '' AND ds.set_name = 'view_count' ORDER BY d.title LIMIT ?, 50"))
+        stmt, err = db.Prepare(tool.DB_change("SELECT d.title, set_data from data d join data_set ds on d.title = ds.doc_name where d.data collate nocase Like ? and ds.set_name = 'view_count' and ds.doc_rev = ''  LIMIT ?, 50"))
         if err != nil {
             panic(err)
         }
