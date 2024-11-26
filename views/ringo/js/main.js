@@ -52,3 +52,14 @@ document.addEventListener("click", function() {
         setTimeout(function() { ringo_open = 0; }, 100);
     }
 });
+
+document.getElementById('login_button').addEventListener('click', function(event) {
+    const currentUrl = window.location.href;
+    fetch('/save_session', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ redirectUrl: currentUrl })
+});
+});

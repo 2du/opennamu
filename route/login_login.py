@@ -46,8 +46,8 @@ def login_login_2():
                 flask.session['id'] = user_id
 
                 ua_plus(conn, user_id, ip, user_agent, get_time())
-
-                return redirect(conn, '/user')
+                previous_url = flask.session.get('redirectUrl', '/user')
+                return redirect(conn, previous_url)
         else:
             return easy_minify(conn, flask.render_template(skin_check(conn),
                 imp = [get_lang(conn, 'login'), wiki_set(conn), wiki_custom(conn), wiki_css([0, 0])],

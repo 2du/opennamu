@@ -720,6 +720,8 @@ app.route('/change/email/check', methods = ['POST', 'GET'])(user_setting_email_c
 # register -> register/email -> regiter/email/check with reg_id
 # pass_find -> pass_find/email with find_id
 
+app.route('/save_session', methods = ['POST'])(save_session)
+
 app.route('/login', methods = ['POST', 'GET'])(login_login_2)
 app.route('/login/2fa', methods = ['POST', 'GET'])(login_login_2fa_2)
 app.route('/register', methods = ['POST', 'GET'])(login_register_2)
