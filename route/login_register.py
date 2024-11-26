@@ -35,6 +35,10 @@ def login_register_2():
 
             if user_pw != user_repeat:
                 return re_error(conn, 20)
+            
+            # ID와 PW 동일성 검증
+            if user_id == user_pw:
+                return re_error(conn, 49)
 
             # PW 길이 제한
             curs.execute(db_change("select data from other where name = 'password_min_length'"))

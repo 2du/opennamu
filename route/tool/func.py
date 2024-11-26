@@ -2450,6 +2450,8 @@ def re_error(conn, data):
             data = get_lang(conn, 'still_use_auth_error')
         elif num == 48:
             data = get_lang(conn, 'xss_data_include_error')
+        elif num == 49:
+            data = get_lang(conn, 'password_same_as_id_error')
         else:
             data = '???'
 

@@ -753,6 +753,7 @@
     "error_password_length_too_short" : "Password length is too short. Minimum number of characters : ",
     "error_password_require_for_wiki_access" : "A password is required to access the wiki.",
     "timeout_error" : "Rendering time is too long. Maximum rendering time (Second(s)) : ",
+    "password_same_as_id_error": "Password cannot be the same as user ID.",
     
     "_comment_" : "Warning",
     "http_warning" : "Warning: If you are not on HTTPS connection, your information can be leaked. The users themselves have responsibility to any problems that happen because of this.",
