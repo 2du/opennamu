@@ -41,6 +41,7 @@ class class_do_render_namumark:
 
         self.data_math_count = 0
         self.data_redirect = 0
+        self.has_countdown = False
         self.link_count = 0
 
         self.data_toc = ''
@@ -807,6 +808,21 @@ class class_do_render_namumark:
                     return date_data
                 else:
                     return '0'
+            elif name_data == 'countdown':
+                if not self.has_countdown:
+                    self.has_countdown = True
+                    self.render_data_js += '''setInterval(function () {
+    document.querySelectorAll("[data-countdown-target]").forEach(function (e) {
+    var c = new Date(e.dataset.countdownTarget) - new Date();
+    if (c < 0) {
+        e.textContent = "0일 0시간 0분 0초 000";
+    }
+    else {
+    e.textContent = `${Math.floor(c / 86400000)}일 ${Math.floor(c % 86400000 / 3600000)}시간 ${Math.floor(c % 3600000 / 60000)}분 ${Math.floor(c % 60000 / 1000)}초 ${String(c % 1000).padStart(3, "0")}`;
+    }
+})})
+'''
+                return '<span data-countdown-target="{0}"></span>'.format(match[1])
             else:
                 return '<macro>' + match[0] + '(' + match[1] + ')' + '</macro>'
 

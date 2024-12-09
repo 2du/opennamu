@@ -18,6 +18,7 @@ from route.bbs_w_tool import bbs_w_tool
 from route.edit import edit
 from route.edit_backlink_reset import edit_backlink_reset
 from route.edit_delete import edit_delete
+from route.edit_delete_completly import edit_delete_completly
 from route.edit_delete_file import edit_delete_file
 from route.edit_delete_multiple import edit_delete_multiple
 from route.edit_move import edit_move

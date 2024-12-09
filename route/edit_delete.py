@@ -63,5 +63,5 @@ def edit_delete(name):
                         <button type="submit">''' + get_lang(conn, 'delete') + '''</button>
                     </form>
                 ''',
-                menu = [['w/' + url_pas(name), get_lang(conn, 'return')]]
+                menu = [['w/' + url_pas(name), get_lang(conn, 'return')], ['delete_completly/' + url_pas(name), get_lang(conn, 'delete_completly')]]
             ))
