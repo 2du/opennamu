@@ -703,5 +703,6 @@
     "login_able_and_regsiter_disable": "로그인 허용 및 회원가입 비허용",
     "private": "비공개",
     "password_same_as_id_error": "비밀번호는 사용자 ID와 같을 수 없습니다.",
-    "upvote": "추천"
+    "upvote": "추천",
+    "delete_completly" : "완전 삭제"
 }
