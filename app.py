@@ -661,6 +661,7 @@ app.route('/xref_reset/<everything:name>')(edit_backlink_reset)
 app.route('/delete/<everything:name>', methods = ['POST', 'GET'])(edit_delete)
 app.route('/delete_file/<everything:name>', methods = ['POST', 'GET'])(edit_delete_file)
 app.route('/delete_multiple', methods = ['POST', 'GET'])(edit_delete_multiple)
+app.route('/delete_completly/<everything:name>', methods = ['POST', 'GET'])(edit_delete_completly)
 
 app.route('/revert/<int:num>/<everything:name>', methods = ['POST', 'GET'])(edit_revert)
 
